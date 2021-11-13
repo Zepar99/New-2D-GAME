@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CapsuleCollider2D))]
 
@@ -11,13 +11,14 @@ public class movement : MonoBehaviour
     public float maxSpeed = 3.4f;
     public float jumpHeight = 6.5f;
     public float gravityScale = 1.5f;
+    public float moveDirection = 0;
+
+    // Animator and Scorecontroller 
     public Animator animator;
-    public Camera main;
     public score scorecontroll;
-
-
+   
+   //All Bools 
     bool facingRight = true;
-    float moveDirection = 0;
     bool isGrounded = false;
    
     Rigidbody2D r2d;
@@ -40,7 +41,7 @@ public class movement : MonoBehaviour
     
     private void ReloadLevel()
     {
-        EditorSceneManager.LoadScene(2);
+        SceneManager.LoadScene(4);
     }
     // Use this for initialization
     void Start()
@@ -97,7 +98,8 @@ public class movement : MonoBehaviour
             animator.SetBool("jump",false);
         }
 
-        if ((Input.GetKeyDown(KeyCode.LeftControl)||(Input.GetKeyDown(KeyCode.RightControl)))&& isGrounded)
+        // Crouching
+        if ((Input.GetKeyDown(KeyCode.S)||(Input.GetKeyDown(KeyCode.RightControl)))&& isGrounded)
         {
             animator.SetBool("crouch",true);
         }
@@ -105,8 +107,7 @@ public class movement : MonoBehaviour
         {
             animator.SetBool("crouch",false);
         }
-
-        
+        // animation 
         animator.SetFloat("Speed",Mathf.Abs( moveDirection));
 
     }
@@ -135,8 +136,7 @@ public class movement : MonoBehaviour
         // Apply movement velocity
         r2d.velocity = new Vector2((moveDirection) * maxSpeed, r2d.velocity.y);
 
-        // Simple debug
-        Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(0, colliderRadius, 0), isGrounded ? Color.green : Color.red);
-        Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(colliderRadius, 0, 0), isGrounded ? Color.green : Color.red);
+    
+        
     }
 }
