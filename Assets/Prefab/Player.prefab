@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6696118564287597968}
   - component: {fileID: 6696118564287597981}
   - component: {fileID: 6696118564287597980}
+  - component: {fileID: 830342379662669211}
   - component: {fileID: 6696118564287597979}
   m_Layer: 0
   m_Name: Player
@@ -141,9 +142,22 @@ MonoBehaviour:
   maxSpeed: 5
   jumpHeight: 6.5
   gravityScale: 1.2
+  mainCamera: {fileID: 0}
   animator: {fileID: 6696118564287597968}
-  main: {fileID: 0}
   scorecontroll: {fileID: 0}
+--- !u!114 &830342379662669211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6696118564287597970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca4b75629a6474144adf45517828cb68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FirePoint: {fileID: 0}
 --- !u!70 &6696118564287597979
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
