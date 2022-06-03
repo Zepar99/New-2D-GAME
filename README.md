@@ -6,7 +6,7 @@
 - Simple mechanics 
 - animations
 - moving platforms
-- enemys
+- enemies
 - simple level design
 
 # Game Screenshots and Gif
